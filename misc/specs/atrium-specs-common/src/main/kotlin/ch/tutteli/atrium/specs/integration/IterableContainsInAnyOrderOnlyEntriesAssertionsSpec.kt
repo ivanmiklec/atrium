@@ -182,7 +182,6 @@ abstract class IterableContainsInAnyOrderOnlyEntriesAssertionsSpec(
                                     "$warningBulletPoint$additionalEntries:",
                                     "${listBulletPoint}4.0"
                                 )
-                                containsSize(5, 4)
                             }
                         }
                     }
@@ -201,7 +200,6 @@ abstract class IterableContainsInAnyOrderOnlyEntriesAssertionsSpec(
                                     "${listBulletPoint}3.0",
                                     "${listBulletPoint}4.0"
                                 )
-                                containsSize(5, 2)
                             }
                         }
                     }
@@ -228,7 +226,6 @@ abstract class IterableContainsInAnyOrderOnlyEntriesAssertionsSpec(
                                     "$warningBulletPoint$mismatches:",
                                     "${listBulletPoint}4.0"
                                 )
-                                containsSize(5, 5)
                             }
                         }
                     }

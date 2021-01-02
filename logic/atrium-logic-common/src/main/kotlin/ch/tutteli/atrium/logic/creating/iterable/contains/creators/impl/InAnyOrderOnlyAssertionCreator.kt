@@ -53,12 +53,11 @@ abstract class InAnyOrderOnlyAssertionCreator<E, T : IterableLike, in SC>(
                     createExplanatoryGroupForMismatchesEtc(list, WARNING_ADDITIONAL_ENTRIES)
                 })
             }
-            assertions.add(
+            val sizeAssertion =
                 assertionBuilder.feature
                     .withDescriptionAndRepresentation(DescriptionCollectionAssertion.SIZE, Text(actualSize.toString()))
                     .withAssertions(featureAssertions)
                     .build()
-            )
 
             val description = searchBehaviour.decorateDescription(CONTAINS)
             val summary = assertionBuilder.summary
@@ -73,12 +72,18 @@ abstract class InAnyOrderOnlyAssertionCreator<E, T : IterableLike, in SC>(
                 }
                 assertionBuilder.invisibleGroup
                     .withAssertions(
+                        sizeAssertion,
                         summary,
                         createExplanatoryGroupForMismatchesEtc(list, warningDescription)
                     )
                     .build()
             } else {
-                summary
+                assertionBuilder.invisibleGroup
+                    .withAssertions(
+                        sizeAssertion,
+                        summary
+                    )
+                    .build()
             }
         }
     }
